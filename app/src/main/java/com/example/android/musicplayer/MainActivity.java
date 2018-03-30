@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    MediaPlayer mp = new MediaPlayer();
+    private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mp = MediaPlayer.create(this, R.raw.the_magic);
 
-        final Button playButton  = (Button)findViewById(R.id.play_button);
+        Button playButton  = (Button)findViewById(R.id.play_button);
         Button pauseButton = (Button)findViewById(R.id.pause_button);
         Button stopButton  = (Button)findViewById(R.id.stop_button);
 
