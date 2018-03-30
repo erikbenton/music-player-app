@@ -4,6 +4,7 @@ import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,9 +15,51 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mp = MediaPlayer.create(this, R.raw.the_magic);
+
+        final Button playButton  = (Button)findViewById(R.id.play_button);
+        Button pauseButton = (Button)findViewById(R.id.pause_button);
+        Button stopButton  = (Button)findViewById(R.id.stop_button);
+
+
+        /**
+         * Adding onClick listener for playing music
+         */
+        playButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                playMusic();
+            }
+        });
+
+        /**
+         * Adding onClick listener for pausing music
+         */
+        pauseButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                pauseMusic();
+            }
+        });
+
+        /**
+         * Adding onClick listener for stopping music
+         */
+        stopButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                stopMusic();
+            }
+        });
+
     }
 
-    public void playMusic(View view)
+    public void playMusic()
     {
         try
         {
@@ -28,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void pauseMusic(View view)
+    public void pauseMusic()
     {
         if(mp.isPlaying())
         {
@@ -36,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void stopMusic(View view)
+    public void stopMusic()
     {
         if(mp.isPlaying())
         {
