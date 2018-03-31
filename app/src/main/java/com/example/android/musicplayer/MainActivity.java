@@ -67,6 +67,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
+    private void releaseMediaPlayer()
+    {
+        if(mp != null)
+        {
+            mp.release();
+            mp = null;
+        }
+    }
+
     public void playMusic()
     {
         try
